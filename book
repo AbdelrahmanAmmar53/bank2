@@ -1,0 +1,86 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace bank
+{
+    public abstract class book
+    {
+        public string author{get; set;}
+        public string title{get; set;}
+        public string ISBN{get; set;}
+        public int Number{get; set;}
+        public abstract void check(Customer customer);
+    }
+     class FictionBook: book
+    {
+
+        public override void check(Customer customer)
+        {
+           Console.WriteLine("we found book");
+        }
+        public string genre{get; set;}
+ 
+    }
+    class nonFictionBook: book
+    {
+        public override void check(Customer customer)
+        {
+            
+        }
+        public string subject{get; set;}
+    }
+   public class Customer 
+   {
+    public string name;
+   public string address;
+    public string email;
+    public List<book> test = new List<book>();
+    public void check(book book)
+    {
+
+    }
+   } 
+   public class library 
+   {
+    public List<book> books{get; set;}
+    public List <Customer> customers{get; set;}
+    public List <library> librarians{get; set;}
+    public void add(book book)
+    {
+      Console.WriteLine("enter the new book");
+    }
+    public void remove(book book)
+    {
+      Console.WriteLine("enter the book you want to remove");
+    }
+    public void search(book book)
+    {
+      Console.WriteLine("enter the book you want to search");
+    }
+    public void manage(book book)
+    {
+        Console.WriteLine("enter your account");
+    }
+   }
+ public class librarian 
+ {
+    public string name{get; set;}
+    public string email{get; set;}
+    public string address{get; set;}
+    public decimal salary{get; set;}
+     public void add(book book, library library)
+    {
+      library.add(book);
+    }
+     public void remove(book book, library library)
+    {
+      library.remove(book);
+    } 
+     public void manage(book book, library library)
+    {
+      
+    }
+ }
+}
